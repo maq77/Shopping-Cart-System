@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "3f9e2c7a-6b5e-4d8c-9a5b-7f1c9e4d2b3a",
+		"name": "Shopping Cart API",
+		"description": "API collection for testing the Shopping Cart API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Cart",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-User-Id",
+						"value": "test-user-123",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/cart",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add to Cart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-User-Id",
+						"value": "test-user-123",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"productId\": 1,\n    \"quantity\": 2\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/cart/add",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cart",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove from Cart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-User-Id",
+						"value": "test-user-123",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"productId\": 1,\n    \"quantity\": 1\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/cart/remove",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cart",
+						"remove"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product from Cart",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-User-Id",
+						"value": "test-user-123",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/cart/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cart",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Checkout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-User-Id",
+						"value": "test-user-123",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"paymentMethod\": \"Credit Card\",\n    \"shippingAddress\": \"123 Main St\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/cart/checkout",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cart",
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:7001",
+			"type": "string"
+		}
+	]
+}
